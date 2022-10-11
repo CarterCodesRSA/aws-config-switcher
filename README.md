@@ -4,7 +4,7 @@ Python script used to read/select/change the users current terminal sessions `aw
 
 ## Background
 
-There are situations where an AWS Programmatic user is required to be the "owner" of a gieven AWS resource.
+There are situations where an AWS Programmatic user is required to be the "owner" of a given AWS resource.
 
 Prime example being AWS EKS:
 >When an Amazon EKS cluster is created, the IAM entity (user or role) that creates the cluster is permanently added to the Kubernetes RBAC authorization table as the administrator. This entity has system:masters permissions.
