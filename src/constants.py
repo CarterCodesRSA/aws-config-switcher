@@ -1,0 +1,1 @@
+AWS_CONFIG_FILE_PATH="/Users/kylehoffman/.aws/config"
