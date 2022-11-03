@@ -22,11 +22,11 @@ def get_profile_credentials() -> dict:
     return credentials
 
 
-def run_aws_configure(key_id: str, secret_id: str):
+def run_aws_configure(key_id: str, secret_id: str) -> None:
     subprocess.run(f"aws configure set aws_access_key_id {key_id}",
-                   stderr=subprocess.PIPE, 
-                   shell=True, 
-                   check=True, 
+                   stderr=subprocess.PIPE,
+                   shell=True,
+                   check=True,
                    text=True)
     subprocess.run(f"aws configure set aws_secret_access_key {secret_id}",
                    stderr=subprocess.PIPE,
