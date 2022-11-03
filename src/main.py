@@ -9,8 +9,10 @@ def get_profile_credentials() -> dict:
     config = configparser.RawConfigParser()
     config.read(c.AWS_CONFIG_FILE_PATH)
 
-    selected_profile = h.show_input_choices(config.sections())
-    print(f"Setting keys to {selected_profile}'s profile")
+    if len(config.sections()) == 0:
+        raise Exception("No profiles found, ensure correct file path is given")
+    else:
+        selected_profile = h.show_input_choices(config.sections())
 
     credentials = {
         "key_id": config.get(selected_profile, "aws_access_key_id"),
@@ -34,6 +36,9 @@ def run_aws_configure(key_id: str, secret_id: str):
 
 
 def main():
+    if c.AWS_CONFIG_FILE_PATH == "":
+        raise Exception("Config path cannot be empty")
+
     credentials = get_profile_credentials()
     run_aws_configure(credentials["key_id"], credentials["secret_id"])
 
