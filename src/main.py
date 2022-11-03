@@ -35,6 +35,15 @@ def run_aws_configure(key_id: str, secret_id: str) -> None:
                    text=True)
 
 
+def display_set_profile() -> None:
+    user = subprocess.run("aws sts get-caller-identity",
+                          shell=True,
+                          capture_output=True,
+                          text=True)
+
+    print(user.stdout)
+
+
 def main():
     if c.AWS_CONFIG_FILE_PATH == "":
         raise Exception("Config path cannot be empty")
